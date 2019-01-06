@@ -11,6 +11,8 @@ import javax.persistence.Id;
 @Data
 @Entity
 public class Game {
+    public Game(){}
+    
     private @Id @GeneratedValue Long id;
     private String organizer;
     private String location;
