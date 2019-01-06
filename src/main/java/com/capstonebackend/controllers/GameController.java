@@ -56,7 +56,7 @@ public class GameController {
                 });
     }
 
-    @DeleteMapping("/games/{id")
+    @DeleteMapping("/games/{id}")
     void deleteGame(@PathVariable Long id) {
         repository.deleteById(id);
     }
