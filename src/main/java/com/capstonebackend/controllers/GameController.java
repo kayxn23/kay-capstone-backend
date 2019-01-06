@@ -1,7 +1,6 @@
 package com.capstonebackend.controllers;
 
 
-import com.capstonebackend.input.GameCreateInput;
 import com.capstonebackend.models.Game;
 import com.capstonebackend.repositories.GameRepository;
 import org.springframework.web.bind.annotation.*;
