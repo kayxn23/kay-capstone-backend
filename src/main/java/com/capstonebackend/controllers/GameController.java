@@ -11,22 +11,22 @@ import java.util.List;
 //@ these are annotations and they're always scoped
 @RestController
 public class GameController {
-    private final GameRepository repository;
+    private final GameRepository gameRepository;
 
-    GameController(GameRepository repository) {
-        this.repository = repository;
+    GameController(GameRepository gameRepository) {
+        this.gameRepository = gameRepository;
     }
 
     //Aggregate root
 
     @GetMapping("/games")
     public List<Game> all() {
-                return repository.findAll();
+                return gameRepository.findAll();
     }
 
     @PostMapping("/games")
     Game newGame(@RequestBody Game newGame) {
-        return repository.save(newGame);
+        return gameRepository.save(newGame);
     }
 
 //    @PostMapping("/games")
@@ -38,27 +38,27 @@ public class GameController {
 
     @GetMapping("/games/{id}")
     Game one(@PathVariable Long id) {
-        return repository.findById(id)
+        return gameRepository.findById(id)
                 .orElseThrow(() -> new GameNotFoundException(id));
     }
 
     @PutMapping("/games/{id}")
     Game replaceGame(@RequestBody Game newGame, @PathVariable Long id) {
-        return repository.findById(id)
+        return gameRepository.findById(id)
                 .map(game -> {
                     game.setLocation(newGame.getLocation());
                     game.setOrganizer(newGame.getOrganizer());
-                    return repository.save(game);
+                    return gameRepository.save(game);
                 })
                 .orElseGet(() -> {
                     newGame.setId(id);
-                    return repository.save(newGame);
+                    return gameRepository.save(newGame);
                 });
     }
 
     @DeleteMapping("/games/{id}")
     void deleteGame(@PathVariable Long id) {
-        repository.deleteById(id);
+        gameRepository.deleteById(id);
     }
 
 
