@@ -10,6 +10,7 @@ import java.util.List;
 
 //@ these are annotations and they're always scoped
 @RestController
+@RequestMapping("/api")
 public class GameController {
     private final GameRepository gameRepository;
 
