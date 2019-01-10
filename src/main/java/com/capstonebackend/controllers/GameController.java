@@ -10,7 +10,7 @@ import java.util.List;
 
 //@ these are annotations and they're always scoped
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/sspickup")
 public class GameController {
     private final GameRepository gameRepository;
 
@@ -20,7 +20,7 @@ public class GameController {
 
     //Aggregate root
 
-    @GetMapping("/games")
+    @GetMapping(value = "/games", produces = "application/json; charset=UTF-8")
     public List<Game> all() {
                 return gameRepository.findAll();
     }
