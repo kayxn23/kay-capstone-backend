@@ -18,7 +18,8 @@ import java.util.Set;
 public class Game implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=false)
+//    @JoinColumn(name="location_id", nullable=false)
+    @JoinColumn(name="location_id", insertable=false, updatable=false)
     private Location location;
 
 //    public Game() {}
