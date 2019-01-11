@@ -22,7 +22,7 @@ public class Location implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private @Id
-    @GeneratedValue //(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id") Long id;
 
     @Column(name = "latitude")
