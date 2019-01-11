@@ -1,5 +1,6 @@
 package com.capstonebackend.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -40,7 +41,7 @@ public class Game implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private @Id
-            @GeneratedValue //(strategy = GenerationType.IDENTITY)
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
             @Column(name="game_id") Long game_id;
 
     @Column(name = "title")
@@ -48,6 +49,7 @@ public class Game implements Serializable {
     @Column(name = "description")
     private String description;
     @Column (name = "game_date") //user_id of the person who created
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date game_date;
 //    @Column (name = "location_id") //should this be @ something else?
     private Long location_id;
