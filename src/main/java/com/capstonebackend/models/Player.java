@@ -25,7 +25,7 @@ public class Player implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private @Id
-            @GeneratedValue
+            @GeneratedValue (strategy = GenerationType.IDENTITY)
             @Column(name="player_id") Long player_id;
 
     @Column(name = "first_name")

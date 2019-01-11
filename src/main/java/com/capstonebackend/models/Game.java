@@ -32,7 +32,7 @@ public class Game implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private @Id
-            @GeneratedValue
+            @GeneratedValue //(strategy = GenerationType.IDENTITY)
             @Column(name="game_id") Long game_id;
 
 //    @Column(name = "game_id")
