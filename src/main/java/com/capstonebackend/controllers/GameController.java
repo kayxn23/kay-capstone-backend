@@ -37,29 +37,32 @@ public class GameController {
 
     //Single item
 
-    @GetMapping("/games/{id}")
-    Game one(@PathVariable Long id) {
-        return gameRepository.findById(id)
-                .orElseThrow(() -> new GameNotFoundException(id));
+    @GetMapping("/games/{game_id}")
+    Game one(@PathVariable Long game_id) {
+        return gameRepository.findById(game_id)
+                .orElseThrow(() -> new GameNotFoundException(game_id));
     }
 
-    @PutMapping("/games/{id}")
-    Game replaceGame(@RequestBody Game newGame, @PathVariable Long id) {
-        return gameRepository.findById(id)
+    @PutMapping("/games/{game_id}")
+    Game replaceGame(@RequestBody Game newGame, @PathVariable Long game_id) {
+        return gameRepository.findById(game_id)
                 .map(game -> {
-                    game.setLocation(newGame.getLocation());
-                    game.setOrganizer(newGame.getOrganizer());
+                    game.setTitle(newGame.getTitle());
+                    game.setDescription(newGame.getDescription());
+                    game.setLocation_id(newGame.getLocation_id());
+                    game.setGame_date(newGame.getGame_date());
+
                     return gameRepository.save(game);
                 })
                 .orElseGet(() -> {
-                    newGame.setId(id);
+                    newGame.setGame_id(game_id);
                     return gameRepository.save(newGame);
                 });
     }
 
     @DeleteMapping("/games/{id}")
-    void deleteGame(@PathVariable Long id) {
-        gameRepository.deleteById(id);
+    void deleteGame(@PathVariable Long game_id) {
+        gameRepository.deleteById(game_id);
     }
 
 

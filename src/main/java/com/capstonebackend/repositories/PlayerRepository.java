@@ -1,10 +1,9 @@
 package com.capstonebackend.repositories;
 
-import com.capstonebackend.models.Game;
-import com.capstonebackend.models.User;
+import com.capstonebackend.models.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
 //this repo supports: creating new instances, updating, delete, finding
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface PlayerRepository extends JpaRepository<Player, Long> {
 }

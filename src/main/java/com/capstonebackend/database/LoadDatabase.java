@@ -1,9 +1,9 @@
 //package com.capstonebackend.database;
 //
 //import com.capstonebackend.models.Game;
-//import com.capstonebackend.models.User;
+//import com.capstonebackend.models.Player;
 //import com.capstonebackend.repositories.GameRepository;
-//import com.capstonebackend.repositories.UserRepository;
+//import com.capstonebackend.repositories.PlayerRepository;
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.context.annotation.Bean;
@@ -14,9 +14,9 @@
 //public class LoadDatabase {
 //
 //    @Bean
-//    CommandLineRunner initDatabase(UserRepository userRepository) {
+//    CommandLineRunner initDatabase(PlayerRepository userRepository) {
 //        return args -> {
-//            log.info("Preloading " + userRepository.save(new User("Test Name ", "name23", 5 )));
+//            log.info("Preloading " + userRepository.save(new Player("Test Name ", "name23", 5 )));
 //
 //        };
 //    }

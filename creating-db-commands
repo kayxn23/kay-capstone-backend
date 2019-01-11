@@ -2496,14 +2496,14 @@ psql (11.1, server 10.6)
 Type "help" for help.
 
 kayxn23=# \deu+
-      List of user mappings
+      List of player mappings
  Server | User name | FDW options 
 --------+-----------+-------------
 (0 rows)
 
-kayxn23=# create user kaybackend with password "123"
+kayxn23=# create player kaybackend with password "123"
 kayxn23-# \deu+
-      List of user mappings
+      List of player mappings
  Server | User name | FDW options 
 --------+-----------+-------------
 (0 rows)
@@ -2646,7 +2646,7 @@ kayxn23-# ;
 CREATE DATABASE
 kayxn23=# \connect capstonebackend
 psql (11.1, server 10.6)
-You are now connected to database "capstonebackend" as user "kayxn23".
+You are now connected to database "capstonebackend" as player "kayxn23".
 capstonebackend=# CREATE TABLE game(
 capstonebackend(#     id BIGINT PRIMARY KEY     NOT NULL,
 capstonebackend(#     organizer VARCHAR(20),
