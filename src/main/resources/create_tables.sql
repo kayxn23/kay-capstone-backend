@@ -25,7 +25,7 @@
 
 1. create database capstonebackend
 2. \connect capstonebackend
-3. ...
+3. select * from game;
 
 CREATE TABLE location (
   id serial PRIMARY KEY

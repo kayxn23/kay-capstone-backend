@@ -17,6 +17,13 @@ import java.util.Set;
 //@Entity indicates that Game is an Entity and @Table specifies the primary table (name game) for the annotated @Entity
 public class Game implements Serializable {
 
+    @ManyToOne
+    @JoinColumn(name="id", nullable=false)
+    private Location location;
+
+//    public Game() {}
+
+
     @ManyToMany(cascade = { CascadeType.ALL})
     @JoinTable(
             name = "game_player",
@@ -35,14 +42,13 @@ public class Game implements Serializable {
             @GeneratedValue //(strategy = GenerationType.IDENTITY)
             @Column(name="game_id") Long game_id;
 
-//    @Column(name = "game_id")
     @Column(name = "title")
     private String title;
     @Column(name = "description")
     private String description;
     @Column (name = "game_date") //user_id of the person who created
     private Date game_date;
-    @Column (name = "location_id") //should this be @ something else?
+//    @Column (name = "location_id") //should this be @ something else?
     private Long location_id;
 
     public Game(String title, String description, Date game_date, Long location_id) {
