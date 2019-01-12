@@ -12,7 +12,9 @@ import java.util.List;
 public class LocationController {
     private final LocationRepository locationRepository;
 
-    LocationController(LocationRepository locationRepository) {this.locationRepository = locationRepository;}
+    LocationController(LocationRepository locationRepository) {
+        this.locationRepository = locationRepository;
+    }
 
     @GetMapping("/locations")
     public List<Location> all() {return locationRepository.findAll();}
