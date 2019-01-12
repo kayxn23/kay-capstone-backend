@@ -6,8 +6,9 @@
 
 CREATE TABLE location (
   id serial PRIMARY KEY
-, latitude float
-, longitude float
+, latitude float NOT NULL
+, longitude float NOT NULL
+, location_name text NOT NULL
 );
 
 CREATE TABLE game (

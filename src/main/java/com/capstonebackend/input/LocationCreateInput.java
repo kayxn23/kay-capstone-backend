@@ -6,4 +6,5 @@ import lombok.Data;
 public class LocationCreateInput {
     private Float longitude;
     private Float latitude;
+    private String location_title;
 }

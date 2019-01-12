@@ -7,7 +7,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
+
 
 @Data
 @Entity
@@ -34,10 +34,13 @@ public class Location implements Serializable {
     private Float latitude;
     @Column(name = "longitude")
     private Float longitude;
+    @Column(name = "location_title")
+    private String location_title;
 
-    public Location(Float latitude, Float longitude) {
+    public Location(Float latitude, Float longitude, String location_title) {
         this.latitude= latitude;
         this.longitude = longitude;
+        this.location_title = location_title;
     }
 
 }

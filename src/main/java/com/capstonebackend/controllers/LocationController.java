@@ -27,6 +27,22 @@ public class LocationController {
         locationRepository.deleteById(id);
     }
 
+    @PutMapping("/locations/{id}")
+    Location replaceLocation(@RequestBody Location newLocation, @PathVariable Long id) {
+        return locationRepository.findById(id)
+                .map(location -> {
+                    location.setLatitude(newLocation.getLatitude());
+                    location.setLongitude(newLocation.getLongitude());
+                    location.setLocation_title(newLocation.getLocation_title());
+
+                    return locationRepository.save(location);
+                })
+                .orElseGet(() -> {
+                    newLocation.setId(id);
+                    return locationRepository.save(newLocation);
+                });
+    }
+
 }
 
 

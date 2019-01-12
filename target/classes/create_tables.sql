@@ -1,27 +1,4 @@
 
---Creating Game db
---1. create database capstonebackend
---2. \connect capstonebackend
---3. CREATE TABLE game(
---       id BIGINT PRIMARY KEY     NOT NULL,
---       organizer VARCHAR(20),
---       location VARCHAR(20)
---   );
---4. \dt
---5. select * from game;    //(show all the data in this table named game )
-
---Creating Player db
---
---3. CREATE TABLE player(
---       id BIGINT PRIMARY KEY     NOT NULL,
---       firstName VARCHAR(20),
---       userName VARCHAR(20),
---       gamesPlayed INTEGER
---       UNIQUE(userName)
---   );
-
-
-   ///// second attempt at creating tables
 
 1. create database capstonebackend
 2. \connect capstonebackend
@@ -29,8 +6,9 @@
 
 CREATE TABLE location (
   id serial PRIMARY KEY
-, latitude float
-, longitude float
+, latitude float NOT NULL
+, longitude float NOT NULL
+, location_name text NOT NULL
 );
 
 CREATE TABLE game (
