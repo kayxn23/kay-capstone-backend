@@ -60,7 +60,7 @@ public class GameController {
                 });
     }
 
-    @DeleteMapping("/games/{id}")
+    @DeleteMapping("/games/{game_id}")
     void deleteGame(@PathVariable Long game_id) {
         gameRepository.deleteById(game_id);
     }
