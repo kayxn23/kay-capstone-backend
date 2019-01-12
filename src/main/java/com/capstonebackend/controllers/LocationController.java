@@ -20,6 +20,11 @@ public class LocationController {
     @PostMapping("/locations")
     Location newLocation(@RequestBody Location newLocation) {return locationRepository.save(newLocation);}
 
+    @DeleteMapping("/locations/{id}")
+    void deleteLocation(@PathVariable Long id) {
+        locationRepository.deleteById(id);
+    }
+
 }
 
 
