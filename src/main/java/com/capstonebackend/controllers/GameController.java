@@ -36,11 +36,6 @@ public class GameController {
         return gameRepository.save(newGame);
     }
 
-//    @PostMapping("/games")
-//    public Game create(@RequestBody GameCreateInput gameDetails) {
-//        return new Game(gameDetails.getOrganizer(), gameDetails.getLocation());
-//    }
-
     //Single item
 
     @GetMapping("/games/{game_id}")
@@ -55,8 +50,9 @@ public class GameController {
                 .map(game -> {
                     game.setTitle(newGame.getTitle());
                     game.setDescription(newGame.getDescription());
-                    game.setLocation_id(newGame.getLocation_id());
+                    game.setLocation(newGame.getLocation());
                     game.setGame_date(newGame.getGame_date());
+                    game.setOrganizer(newGame.getOrganizer());
 
                     return gameRepository.save(game);
                 })

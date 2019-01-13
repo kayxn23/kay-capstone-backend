@@ -18,6 +18,7 @@ public class Player implements Serializable {
 
     @ManyToMany(mappedBy = "players")
     private List<Game> games;
+
 //    private Set<Game> game = new HashSet<>();
 
     protected Player(){ }

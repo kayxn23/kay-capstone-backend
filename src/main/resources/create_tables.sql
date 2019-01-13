@@ -15,8 +15,9 @@ CREATE TABLE game (
   game_id serial PRIMARY KEY
 , title text NOT NULL
 , description text NOT NULL
-, game_date date NOT NULL DEFAULT CURRENT_DATE
+, game_date timestamp NOT NULL DEFAULT CURRENT_DATE
 , location_id int NOT NULL references location(id) ON DELETE CASCADE
+, organizer_id int NOT NULL references player(player_id) ON DELETE CASCADE
 );
 
 
