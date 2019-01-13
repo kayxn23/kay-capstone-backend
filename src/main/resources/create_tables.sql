@@ -23,8 +23,8 @@ CREATE TABLE game (
 CREATE TABLE game_player (
   game_id int REFERENCES game (game_id) ON UPDATE CASCADE ON DELETE CASCADE
 , player_id int REFERENCES player (player_id) ON UPDATE CASCADE
-, role text NOT NULL DEFAULT 'player'
-, CONSTRAINT game_player_pkey PRIMARY KEY(game_id, player_id)
+, role text NOT NULL
+,  CONSTRAINT game_player_pkey PRIMARY KEY(game_id, player_id)
 );
 
 CREATE TABLE player (

@@ -20,9 +20,15 @@ public class GameController {
 
     //Aggregate root
 
+    //add query variable in /games?location_id={id}
+
     @GetMapping(value = "/games", produces = "application/json; charset=UTF-8")
-    public List<Game> all() {
-                return gameRepository.findAll();
+    public List<Game> all(@RequestParam(required = false) Long location_id) {
+        if (location_id != null) {
+            return gameRepository.findByLocationId(location_id);
+        } else {
+            return gameRepository.findAll();
+        }
     }
 
     @PostMapping("/games")

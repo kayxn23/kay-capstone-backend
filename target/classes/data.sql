@@ -1,6 +1,6 @@
-INSERT INTO location(latitude,longitude) VALUES ('47.550259','-122.264847');
-INSERT INTO location(latitude,longitude) VALUES ('47.721790','-122.327209');
-INSERT INTO location(latitude,longitude) VALUES ('47.620598','-122.361816');
+INSERT INTO location(latitude,longitude, location_title) VALUES ('47.550259','-122.264847');
+INSERT INTO location(latitude,longitude, location_title) VALUES ('47.721790','-122.327209');
+INSERT INTO location(latitude,longitude, location_title) VALUES ('47.620598','-122.361816');
 INSERT INTO location(latitude,longitude) VALUES ('47.563450','-122.404251');
 INSERT INTO location(latitude,longitude) VALUES ('47.622120','-122.284554');
 INSERT INTO location(latitude,longitude) VALUES ('47.664944','-122.401909');
