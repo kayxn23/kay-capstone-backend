@@ -2,11 +2,13 @@ package com.capstonebackend.controllers;
 
 
 import com.capstonebackend.models.Game;
+import com.capstonebackend.models.Player;
 import com.capstonebackend.repositories.GameRepository;
 
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 //@ these are annotations and they're always scoped
 @RestController
@@ -28,6 +30,20 @@ public class GameController {
             return gameRepository.findByLocationId(location_id);
         } else {
             return gameRepository.findAll();
+        }
+    }
+
+    //pass in a player object from react to here marked body
+    @PatchMapping("/games/{game_id}/join")
+    public Game joinGame(@RequestBody Player newlyJoinedPlayer, @PathVariable Long game_id) {
+        Optional<Game> potentialGame = gameRepository.findById(game_id);
+        if(potentialGame.isPresent()) {
+            Game existingGame = potentialGame.get();
+            existingGame.getPlayers().add(newlyJoinedPlayer);
+
+            return gameRepository.save(existingGame);
+        } else {
+            throw new GameNotFoundException(game_id);
         }
     }
 

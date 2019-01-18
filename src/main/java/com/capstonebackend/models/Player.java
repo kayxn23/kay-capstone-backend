@@ -16,8 +16,8 @@ import java.util.Set;
 //@Entity indicates that Game is an Entity and @Table specifies the primary table (name game) for the annotated @Entity
 public class Player implements Serializable {
 
-    @ManyToMany(mappedBy = "players")
-    private List<Game> games;
+//    @ManyToMany(mappedBy = "players")
+//    private List<Game> games;
 
 //    private Set<Game> game = new HashSet<>();
 
