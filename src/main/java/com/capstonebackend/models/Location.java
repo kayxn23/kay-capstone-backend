@@ -3,6 +3,7 @@ package com.capstonebackend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,7 +13,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "location")
-
+@ToString(exclude = {"games"})
 public class Location implements Serializable {
 
     //mappedBy property is what we use to tell Hibernate which variable we are using to represent the parent class in our child class.

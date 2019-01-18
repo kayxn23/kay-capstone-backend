@@ -1,6 +1,8 @@
 package com.capstonebackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,11 +15,13 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "player")
+@ToString(exclude={"games"})
 //@Entity indicates that Game is an Entity and @Table specifies the primary table (name game) for the annotated @Entity
 public class Player implements Serializable {
 
-//    @ManyToMany(mappedBy = "players")
-//    private List<Game> games;
+    @ManyToMany(mappedBy = "players")
+    @JsonIgnore
+    private List<Game> games;
 
 //    private Set<Game> game = new HashSet<>();
 

@@ -39,6 +39,7 @@ public class GameController {
         Optional<Game> potentialGame = gameRepository.findById(game_id);
         if(potentialGame.isPresent()) {
             Game existingGame = potentialGame.get();
+
             existingGame.getPlayers().add(newlyJoinedPlayer);
 
             return gameRepository.save(existingGame);
