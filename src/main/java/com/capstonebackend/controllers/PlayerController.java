@@ -2,6 +2,9 @@ package com.capstonebackend.controllers;
 
 import com.capstonebackend.models.Player;
 import com.capstonebackend.repositories.PlayerRepository;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +30,16 @@ public class PlayerController {
     //before creating a player, check if their email exists in the db (bc that is unique)
     // if the email exists do not create
     // else if the email does not exist , go ahead and create the player
-    Player newPlayer(@RequestBody Player newPlayer) {
+    Player newPlayer(@RequestBody Player newPlayer, @RequestHeader (name = "X-login-token", required = true) String idToken) {
+        System.out.println(newPlayer);
+
+        FirebaseToken decodedToken = null;
+        try {
+            decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
+        } catch (IllegalArgumentException | FirebaseAuthException e) {
+            throw new NotAuthorizedException();
+        }
+
         List<Player> potentialPlayer = playerRepository.findByUID(newPlayer.getUser_id());
 
         if(potentialPlayer.isEmpty()) {
