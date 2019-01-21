@@ -5,9 +5,10 @@ import com.capstonebackend.repositories.PlayerRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/sspickup")
+@RequestMapping("/kickit")
 public class PlayerController {
     private final PlayerRepository playerRepository;
 
@@ -23,9 +24,19 @@ public class PlayerController {
     }
 
     @PostMapping("/players")
+    //before creating a player, check if their email exists in the db (bc that is unique)
+    // if the email exists do not create
+    // else if the email does not exist , go ahead and create the player
     Player newPlayer(@RequestBody Player newPlayer) {
-        return playerRepository.save(newPlayer);
+        List<Player> potentialPlayer = playerRepository.findByUID(newPlayer.getUser_id());
+
+        if(potentialPlayer.isEmpty()) {
+            return playerRepository.save(newPlayer);
+        }
+
+        return null;
     }
+
 
     //Single Item
 

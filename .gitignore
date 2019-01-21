@@ -1,2 +1,4 @@
 src/main/resources/create_tables.sql
 .idea
+src/main/resources/firebase-server-secret-key.json
+target/

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sspickup")
+@RequestMapping("/kickit")
 public class LocationController {
     private final LocationRepository locationRepository;
 

@@ -8,4 +8,5 @@ public class PlayerCreateInput {
     private String user_name;
     private Integer games_played;
     private String profile_picture;
+    private String user_id;
 }

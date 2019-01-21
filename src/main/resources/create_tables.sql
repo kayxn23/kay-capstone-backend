@@ -33,5 +33,7 @@ CREATE TABLE player (
 , first_name text NOT NULL
 , user_name text NOT NULL
 , games_played int DEFAULT 0
+, user_id text NOT NULL
 , profile_picture VARCHAR (255) DEFAULT 'https://saage.edu.sg/wp-content/uploa)ds/2018/08/Unknown-Girl.jpg'
 );
+

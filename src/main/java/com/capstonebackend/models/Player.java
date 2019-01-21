@@ -41,12 +41,15 @@ public class Player implements Serializable {
     private Integer games_played;
     @Column(name = "profile_picture")
     private String profile_picture;
+    @Column(name = "user_id")
+    private String user_id;
 
-    public Player(String first_name, String user_name, Integer games_played, String profile_picture) {
+    public Player(String first_name, String user_name, Integer games_played, String profile_picture, String user_id) {
         this.first_name = first_name;
         this.user_name = user_name;
         this.games_played = games_played;
         this.profile_picture = profile_picture;
+        this.user_id = user_id;
     }
 
 //    @Override
