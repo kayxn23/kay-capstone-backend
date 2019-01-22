@@ -31,8 +31,6 @@ public class PlayerController {
     // if the email exists do not create
     // else if the email does not exist , go ahead and create the player
     Player newPlayer(@RequestBody Player newPlayer, @RequestHeader (name = "X-login-token", required = true) String idToken) {
-        System.out.println(newPlayer);
-
         FirebaseToken decodedToken = null;
         try {
             decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
@@ -46,7 +44,7 @@ public class PlayerController {
             return playerRepository.save(newPlayer);
         }
 
-        return null;
+        return potentialPlayer.get(0);
     }
 
 
